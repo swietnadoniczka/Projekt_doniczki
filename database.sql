@@ -6,17 +6,18 @@ CREATE TABLE `device` (
 
 CREATE TABLE `users` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
-  `full_name` varchar(255),
-  `created_at` timestamp
+  `full_name` varchar(255)
 );
 
 CREATE TABLE `pump` (
   `id` int PRIMARY KEY,
-  `time_stamp` timestamp,
-  `signal` bool,
+  `water_time` int,
+  `dane` bool,
+  `start_time` datetime,
+  `stop_time` datetime,
   `device_id` int
 );
 
 ALTER TABLE `device` ADD FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
-ALTER TABLE `pump` ADD FOREIGN KEY (`device_id`) REFERENCES `users` (`id`);
+ALTER TABLE `pump` ADD FOREIGN KEY (`device_id`) REFERENCES `device` (`id`);

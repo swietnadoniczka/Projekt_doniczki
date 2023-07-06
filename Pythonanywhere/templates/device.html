@@ -1,0 +1,81 @@
+<html>
+    <head>
+  <!--css-->
+         <link rel="stylesheet" type="text/css" href="/css/main.css" media= "screen, projection">
+
+
+
+        {% if title %}
+        <title>{{ title }} - 2023</title>
+        {% endif %}
+
+
+
+    </head>
+    <body>
+
+
+
+
+         <form action = "/www/device" method = post>
+         <fieldset>
+            <legend>Dodaj dane Users </legend>
+
+
+
+
+            <div style = font-size:20px; font-weight:bold; margin-left:350px;>
+
+
+
+               {{ form.name.label }}
+               {{ form.name }}
+               <br><br>
+
+               {{ form.id.label }}
+               {{ form.id }}
+               <br><br>
+
+               {{ form.user_id.label }}
+               {{ form.user_id }}
+               <br><br>
+
+               <br>
+
+
+
+               <br>
+               {{ form.submit }}
+            </div>
+
+
+
+         </fieldset>
+      </form>
+
+
+
+
+        <div >LISTA </div>
+        <hr>
+
+
+
+        <table>
+        <tbody>
+            <tr><p><th>Id</th> <th><b>Name</b></th> <th><b>User_id</b></th> </p></tr>
+            {% for informacje in data %}
+                <tr>
+                    <p><th>{{informacje.id}}</th><td>{{informacje.name}}</td> <td>{{informacje.user_id}}</td> </p>
+                </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+
+
+
+
+
+
+    </body>
+</html>

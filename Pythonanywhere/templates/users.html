@@ -1,0 +1,72 @@
+<html>
+    <head>
+  <!--css-->
+         <link rel="stylesheet" type="text/css" href="/css/main.css" media= "screen, projection">
+
+
+
+        {% if title %}
+        <title>{{ title }} - 2023</title>
+        {% endif %}
+
+
+
+    </head>
+    <body>
+
+
+
+
+         <form action = "/www/users" method = post>
+         <fieldset>
+            <legend>Dodaj dane Users </legend>
+            {{ form.hidden_tag }}
+
+
+
+            <div style = font-size:20px; font-weight:bold; margin-left:350px;>
+
+
+
+               {{ form.full_name.label }}
+               {{ form.full_name }}
+               <br><br>
+               <br>
+
+
+
+               <br>
+               {{ form.submit }}
+            </div>
+
+
+
+         </fieldset>
+      </form>
+
+
+
+
+        <div >LISTA </div>
+        <hr>
+
+
+
+        <table>
+        <tbody>
+            <tr><p><th>Id</th> <th><b>Full_name</b></th></p></tr>
+            {% for informacje in data %}
+                <tr>
+                    <p><th>{{informacje.id}}</th><td>{{informacje.full_name}}</td>  </p>
+                </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+
+
+
+
+
+
+    </body>
+</html>

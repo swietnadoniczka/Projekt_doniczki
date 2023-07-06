@@ -1,0 +1,96 @@
+<html>
+    <head>
+  <!--css-->
+         <link rel="stylesheet" type="text/css" href="/css/main.css" media= "screen, projection">
+
+
+
+        {% if title %}
+        <title>{{ title }} - 2023</title>
+        {% endif %}
+
+
+
+    </head>
+    <body>
+
+
+
+
+         <form action = "/www/pump" method = post>
+         <fieldset>
+            <legend>Dodaj dane Users </legend>
+
+
+
+
+            <div style = font-size:20px; font-weight:bold; margin-left:350px;>
+
+
+
+               {{ form.id.label }}
+               {{ form.id }}
+               <br><br>
+
+               {{ form.water_time.label }}
+               {{ form.water_time }}
+               <br><br>
+
+               {{ form.device_id.label }}
+               {{ form.device_id }}
+               <br><br>
+
+               {{ form.dane.label }}
+               {{ form.dane }}
+               <br><br>
+
+               {{ form.start_time.label }}
+               {{ form.start_time }}
+               <br><br>
+
+               {{ form.stop_time.label }}
+               {{ form.stop_time }}
+               <br><br>
+
+
+
+
+               <br>
+
+
+
+               <br>
+               {{ form.submit }}
+            </div>
+
+
+
+         </fieldset>
+      </form>
+
+
+
+
+        <div >LISTA </div>
+        <hr>
+
+
+
+        <table>
+        <tbody>
+            <tr><p><th>Id</th> <th><b>Dane</b></th> <th><b>Device_id</b></th> <th><b>Start_time</b></th> <th><b>Stop_time</b></th> <th><b>Water_time</b></th> <th><b>Temperature</b></th> <th><b>Humidity</b></th> <th><b>Czy_wlano</b></th> <th><b>Czy_wylano</b></th> </p></tr>
+            {% for informacje in data %}
+                <tr>
+                    <p><th>{{informacje.id}}</th> <td>{{informacje.dane}}</td> <td>{{informacje.device_id}}</td> <td>{{informacje.start_time}}</td> <td>{{informacje.stop_time}}</td>  <td>{{informacje.water_time}}</td> <td>{{informacje.temperature}}</td> <td>{{informacje.humidity}}</td> <td>{{informacje.czy_wlano}}</td> <td>{{informacje.czy_wylano}}</td> </p>
+                </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+
+
+
+
+
+
+    </body>
+</html>
